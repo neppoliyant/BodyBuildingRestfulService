@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender class="org.apache.log4j.FileAppender" name="auditLogAppender">
+        <param value="/Users/nthang003c/Desktop/BodyBuilding/BodyBuildingWS/BodyBuildingAuditLog.log" name="File"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param value="[%d{ISO8601}] [%-5p] [%t] [%c{2}:%L] [%m]%n" name="ConversionPattern"/>
+        </layout>
+    </appender>
+    <!--<appender class="org.apache.log4j.RollingFileAppender" name="R"> -->
+    <appender class="org.apache.log4j.rolling.RollingFileAppender" name="R">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param value="[%d{ISO8601}] [%-5p] [%t] [%c{2}:%L] [%m]%n" name="ConversionPattern"/>
+        </layout>
+        <rollingPolicy class="org.apache.log4j.rolling.FixedWindowRollingPolicy">
+            <param name="FileNamePattern" value="/Users/nthang003c/Desktop/BodyBuilding/BodyBuildingWS/BodyBuilding.log.%i.gz"/>
+            <param name="ActiveFileName" value="/Users/nthang003c/Desktop/BodyBuilding/BodyBuildingWS/BodyBuilding.log"/>
+            <param name="MinIndex" value="1" />
+            <param name="MaxIndex" value="10" />
+        </rollingPolicy>
+        <triggeringPolicy class="org.apache.log4j.rolling.SizeBasedTriggeringPolicy">
+            <param name="MaxFileSize" value="10000000" />
+        </triggeringPolicy>
+    </appender>
+    <appender class="org.apache.log4j.ConsoleAppender" name="stdout">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param value="[%d{ISO8601}] [%-5p] [%t] [%c{2}:%L] [%m]%n" name="ConversionPattern"/>
+        </layout>
+    </appender>
+    <logger name="auditLogAppender">
+        <level value="debug"/>
+        <appender-ref ref="auditLogAppender"/>
+    </logger>
+    <logger name="com.comcast">
+        <level value="debug"/>
+    </logger>
+    <logger name="httpclient.wire">
+        <level value="debug"/>
+    </logger>
+    <logger name="net">
+        <level value="debug"/>
+    </logger>
+    <logger name="org">
+        <level value="debug"/>
+    </logger>
+    <logger name="org.apache">
+        <level value="debug"/>
+    </logger>
+    <logger name="org.apache.axis.TIME">
+        <level value="debug"/>
+    </logger>
+    <root>
+        <level value="debug"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="R"/>
+    </root>
+</log4j:configuration>
