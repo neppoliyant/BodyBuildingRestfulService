@@ -1,8 +1,5 @@
 # BodyBuildingRestfulService
-Backend Restful service for Web and Mobile apps
-
-# BodyBuilding Restful Service
-Simple backend service for getting user, trainer, trainee and workout details.
+Backend Restful service for Web and Mobile apps. Simple backend service for getting user, trainer, trainee and workout details.
 
 ## Tech Stack
 * Spring 
@@ -41,5 +38,7 @@ function (doc, meta) {
 
 ```
 ### APIs:
+
+![Alt text](/blob/master/SwaggerApi.png?raw=true "Swagger")
 
 
