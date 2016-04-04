@@ -39,6 +39,6 @@ function (doc, meta) {
 ```
 ### APIs:
 
-![Alt text](/blob/master/SwaggerApi.png?raw=true "Swagger")
+![Alt text](/SwaggerApi.png?raw=true "Swagger")
 
 
